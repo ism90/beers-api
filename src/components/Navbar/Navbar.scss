@@ -1,0 +1,12 @@
+@use "../../assets/scss/_variables.scss" as *;
+@use "../../assets/scss/_resets.scss";
+
+.navbar {
+  margin: 10px;
+  width: 200px;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  border: 2px solid black;
+  height: 95vh;
+}
