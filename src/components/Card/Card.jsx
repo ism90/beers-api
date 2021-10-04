@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Card.scss";
 
 const Card = (props) => {
-  const { name, img, tagline, abv } = props.beer;
+  const { name, img, tagline, abv } = props;
 
 
   return (
