@@ -7,10 +7,9 @@ input {
   height: 5%;
   background-color: $color-secondary;
   color: white;
-  border: none;
+  border: 2px solid $color-primary;
   border-radius: 30px;
-  outline: none;
+
   padding-left: 7%;
   margin: auto;
 }
-
