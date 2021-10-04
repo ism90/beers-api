@@ -4,10 +4,14 @@ import "./SearchBox.scss";
 const SearchBox = (props) => {
   const { handleInputSearch, inputSearch } = props;
 
+  const startSearch = () => {};
+
+  const resetSearch = () => {};
+
   return (
     <input
-      onInput={handleInputSearch}
-      value={inputSearch}
+      onChange={startSearch}
+      onBlur={resetSearch}
       type="text"
       className="search-box"
       placeholder="..."

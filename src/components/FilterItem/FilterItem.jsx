@@ -3,7 +3,9 @@ import "./FilterItem.scss";
 
 
 
-const FilterItem = () => {
+
+
+function FilterItem() {
   return (
     <div>
       
