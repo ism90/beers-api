@@ -3,12 +3,12 @@
 
 .navbar {
   margin: 10px;
-  width: 200px;
+  width: 20%;
   position: fixed;
   height: 100%;
   overflow: auto;
-  border: 2px solid black;
-  height: 95vh;
+  border: 2px solid $color-primary;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }

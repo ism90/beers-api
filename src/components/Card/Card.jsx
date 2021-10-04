@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Card.scss";
+import "./Card.scss";
 
 const Card = (props) => {
   const { name, img, tagline, abv } = props;
@@ -7,11 +7,11 @@ const Card = (props) => {
 
   return (
     <>
-      <article className={styles.card}>
+      <article className="card">
         <h2>{name}</h2>
         <p>{tagline}</p>
         <section>
-          <img className={styles.img} src={img} alt="" />
+          <img className="beer-image" src={img} alt="" />
         </section>
         <p>{abv}%</p>
       </article>
