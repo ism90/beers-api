@@ -9,4 +9,6 @@
   overflow: auto;
   border: 2px solid black;
   height: 95vh;
+  display: flex;
+  flex-direction: column;
 }

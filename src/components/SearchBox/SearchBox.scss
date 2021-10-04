@@ -1,0 +1,16 @@
+@use "../../assets/scss/_variables.scss" as *;
+@use "../../assets/scss/_resets.scss";
+@use "../../assets/scss/_font.scss";
+
+input {
+  width: 90%;
+  height: 5%;
+  background-color: $color-secondary;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  padding-left: 7%;
+  margin: auto;
+}
+

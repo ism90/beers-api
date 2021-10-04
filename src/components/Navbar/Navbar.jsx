@@ -1,12 +1,16 @@
 import React from "react";
 import "./Navbar.scss";
+import SearchBox from "../SearchBox/SearchBox";
 
-import "./Navbar.scss";
-
-const Navbar = () => {
+const Navbar = (props) => {
+  
+  const {handleInputSearch, inputSearch} = props;
   return (
     <>
-      <div className="navbar"></div>
+      <div className="navbar">
+      <SearchBox handleInputText={handleInputSearch} inputText={inputSearch} />
+      </div>
+   
     </>
   );
 };
