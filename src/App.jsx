@@ -16,8 +16,8 @@ const App = () => {
   const [beers, setBeers] = useState([]);
 
   const handleInput = (event) => {
-    const input = event.target.value.toLowerCase();
-    setSearchTerm(input);
+    const userInput = event.target.value;
+    setSearchTerm(userInput);
   };
 
   useEffect(() => {
