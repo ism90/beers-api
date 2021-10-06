@@ -1,14 +1,9 @@
 import React from "react";
 import "./FilterList.scss";
+import FilterItem from "../FilterItem/FilterItem";
 
+const FilterList = (props) => {
 
+};
 
-const FilterList = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default FilterList
+export default FilterList;
