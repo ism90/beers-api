@@ -7,7 +7,8 @@ const CardList = (props) => {
 
   const getBeersJSX = beers.map((beer) => {
     return (
-      <Card className="card"
+      <Card
+        className="card"
         key={beer.id}
         name={beer.name}
         img={beer.image_url}
@@ -17,7 +18,13 @@ const CardList = (props) => {
     );
   });
 
-  return <section className="card-list">{getBeersJSX}</section>;
+  return (
+    <section className="card-list">
+      {getBeersJSX}
+    </section>
+    
+  );
+
 };
 
 export default CardList;

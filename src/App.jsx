@@ -9,36 +9,38 @@ import SearchBox from "./components/SearchBox/SearchBox";
 // import beers from "./data/beers";
 
 const App = () => {
-  // State for Beers
-  const [beers, setBeers] = useState(0);
-
   // State for Search
+  const [searchTerm, setSearchTerm] = useState("");
 
-  console.log("App refresh");
-  // Fetch for all Punk Beers
+  // State for Beers
+  const [beers, setBeers] = useState([]);
+
+  const handleInput = (event) => {
+    const input = event.target.value.toLowerCase();
+    setSearchTerm(input);
+  };
+
   useEffect(() => {
-    console.log("useEffect run");
-    fetch("https://api.punkapi.com/v2/beers?page=2&per_page=80")
-      .then((res) => {
-        return res.json();
+    fetch(`https://api.punkapi.com/v2/beers?page=2&per_page=80`)
+      .then((response) => {
+        return response.json();
       })
-      .then((beersArray) => {
-        console.log(beersArray);
-        return setBeers(beers);
-        // const mealsArray = mealsObj.meals;
-        // // to deal with error message from search
-        // if(mealsArray) {
-        //   setMeals(mealsArray);
-        // } else {setMeals([]);
-        // }
-      });
-  }, [beers]);
+      .then(
+        (beers) => {
+          console.log(beers);
+          return setBeers(beers);
+        },
+        [searchTerm]
+      );
+  });
+
+  console.log("useEffect run");
 
   return (
     <div className="app">
-      {/* <Navbar />
+      <Navbar handleInput={handleInput} />
 
-      <Main /> */}
+      {beers && <Main beers={beers} />}
     </div>
   );
 };
