@@ -3,11 +3,11 @@ import CardList from "../CardList/CardList";
 import "./Main.scss";
 
 const Main = (props) => {
-  const { data } = props;
+  const { beers } = props;
 
   return (
     <section className="main">
-      <CardList beers={data} />
+      <CardList beers={beers} />
     </section>
   );
 };
