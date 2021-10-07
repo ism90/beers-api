@@ -1,21 +1,13 @@
 import "./App.scss";
 import React, { useState, useEffect } from "react";
 
-import FilterItem from "./components/FilterItem/FilterItem";
-import FilterList from "./components/FilterList/FilterList";
 import Main from "./components/Main/Main";
 import Navbar from "./components/Navbar/Navbar";
-import SearchBox from "./components/SearchBox/SearchBox";
-// import beers from "./data/beers";
 
 const App = () => {
+  const [beers, setBeers] = useState([]);
+  //for search (second part allows us to update state)
   const [searchTerm, setSearchTerm] = useState("");
-  const [beersRes, setBeersRes] = useState([]);
-
-  const handleInput = (event) => {
-    const input = event.target.value.toLowerCase();
-    setSearchTerm(input);
-  };
 
   useEffect(() => {
     fetch(`https://api.punkapi.com/v2/beers`)
@@ -25,22 +17,32 @@ const App = () => {
       .then(
         (beers) => {
           console.log(beers);
-          return setBeersRes(beers);
+          return setBeers(beers);
         },
         [searchTerm]
       );
   });
 
+  const beersToLowerCase = beers.filter((beer) => {
+    const searchToLower = beer.name.toLowerCase();
+
+    return searchToLower.includes(searchTerm);
+  });
+
+  const handleInput = (event) => {
+    const cleanInput = event.target.value.toLowerCase();
+    setSearchTerm(cleanInput);
+  };
+
   return (
     <div className="app">
-      <Navbar handleInput={handleInput} searchTerm={searchTerm} />
-      {beersRes && (
-        <Main
-          beers={beersRes.filter((beer) => {
-            return beer.name.includes(searchTerm);
-          })}
-        />
-      )}
+      <Navbar
+        placeholder="Search"
+        searchTerm={searchTerm}
+        handleInput={handleInput}
+      />
+
+      <Main beers={beersToLowerCase} />
     </div>
   );
 };

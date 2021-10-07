@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import SearchBox from "../SearchBox/SearchBox";
 
 const Navbar = (props) => {
-  const { handleInput, searchTerm } = props;
+  const { handleInput, inputValue, searchTerm } = props;
   return (
     <>
       <section className="title">
@@ -11,7 +11,7 @@ const Navbar = (props) => {
       </section>
       <section className="abv-filter"></section>
       <div className="navbar">
-        <SearchBox handleInput={handleInput} searchTerm={searchTerm} />
+        <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
       </div>
     </>
   );

@@ -5,14 +5,16 @@ const SearchBox = (props) => {
   const { handleInput, searchTerm } = props;
 
   return (
-    <input
-      onInput={handleInput}
-      value={searchTerm}
-      type="text"
-      className="search-box"
-      placeholder="..."
-      id="search"
-    />
+
+      <input
+        onChange={handleInput}
+        value={searchTerm}
+        type="text"
+        className="search-box"
+        placeholder="..."
+        id="search"
+      />
+
   );
 };
 
