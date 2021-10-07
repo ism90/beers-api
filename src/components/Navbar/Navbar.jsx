@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import SearchBox from "../SearchBox/SearchBox";
 
 const Navbar = (props) => {
-  const { handleInput, inputValue, searchTerm } = props;
+  const { handleInput, searchTerm } = props;
   return (
     <>
       <section className="title">
