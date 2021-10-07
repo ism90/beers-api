@@ -9,38 +9,38 @@ import SearchBox from "./components/SearchBox/SearchBox";
 // import beers from "./data/beers";
 
 const App = () => {
-  // State for Search
   const [searchTerm, setSearchTerm] = useState("");
-
-  // State for Beers
-  const [beers, setBeers] = useState([]);
+  const [beersRes, setBeersRes] = useState([]);
 
   const handleInput = (event) => {
-    const userInput = event.target.value;
-    setSearchTerm(userInput);
+    const input = event.target.value.toLowerCase();
+    setSearchTerm(input);
   };
 
   useEffect(() => {
-    fetch(`https://api.punkapi.com/v2/beers?page=2&per_page=80`)
-      .then((response) => {
-        return response.json();
+    fetch(`https://api.punkapi.com/v2/beers`)
+      .then((res) => {
+        return res.json();
       })
       .then(
         (beers) => {
           console.log(beers);
-          return setBeers(beers);
+          return setBeersRes(beers);
         },
         [searchTerm]
       );
   });
 
-  console.log("useEffect run");
-
   return (
     <div className="app">
-      <Navbar handleInput={handleInput} />
-
-      {beers && <Main beers={beers} />}
+      <Navbar handleInput={handleInput} searchTerm={searchTerm} />
+      {beersRes && (
+        <Main
+          beers={beersRes.filter((beer) => {
+            return beer.name.includes(searchTerm);
+          })}
+        />
+      )}
     </div>
   );
 };
