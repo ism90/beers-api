@@ -1,14 +1,27 @@
-@use "../../assets/scss/_variables.scss" as *;
-@use "../../assets/scss/_resets.scss";
-@use "../../assets/scss/_font.scss";
+@use "./../../assets/sass/variables" as *;
+@use "./../../assets/sass/mixins" as *;
 
-input {
-  width: 90%;
-  height: 5%;
-  background-color: $color-secondary;
-  color: white;
-  border: 2px solid $color-primary;
-  border-radius: 30px;
-  padding-left: 7%;
-  margin: auto;
+.search-box {
+  margin: 50px 0 30px 0;
+
+  &__input {
+    border: none;
+    border-bottom: 2px solid $color-secondary;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    color: $color-white;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    text-align: left;
+
+    &::placeholder {
+      color: $color-white;
+      letter-spacing: 0.5px;
+      font-weight: bold;
+    }
+  }
 }

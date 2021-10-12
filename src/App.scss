@@ -1,4 +1,3 @@
-.app {
-  height: 100vh;
-  width: 100%;
-}
+@use "./assets/sass/variables" as *;
+@use "./assets/sass/mixins" as *;
+

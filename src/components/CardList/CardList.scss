@@ -1,20 +1,19 @@
-@use "../../assets/scss/_variables.scss" as *;
-@use "../../assets/scss/_resets.scss";
-@use "../../assets/scss/_font.scss";
+@use "./../../assets/sass/variables" as *;
+@use "./../../assets/sass/mixins" as *;
 
 .card-list {
-  width: 80vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-gap: 50px;
-  justify-content: space-around;
-  margin-left: 20vw;
+  max-width: 100%;
   min-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 275px);
+  grid-gap: 25px;
+  justify-content: space-around;
+  margin-left: 355px;
 
-  .card {
-    margin: auto;
-    height: 500px;
-    width: 300px;
-    text-align: center;
+  @include respond(tablet) {
+  }
+
+  @include respond(mobile) {
+    margin: 0;
   }
 }

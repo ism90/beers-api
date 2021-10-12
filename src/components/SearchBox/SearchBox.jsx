@@ -2,20 +2,14 @@ import React from "react";
 import "./SearchBox.scss";
 
 const SearchBox = (props) => {
-  const { handleInput, searchTerm } = props;
-
+  const { placeholder, handleSearchInput } = props;
   return (
-
-      <input
-        onChange={handleInput}
-        value={searchTerm}
-        type="text"
-        className="search-box"
-        placeholder="..."
-        id="search"
-      />
-
+    <div className="search-box">
+      <input className="search-box__input" type="text" placeholder={placeholder} onChange={handleSearchInput} />
+    </div>
   );
 };
 
 export default SearchBox;
+
+

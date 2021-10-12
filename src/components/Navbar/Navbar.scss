@@ -1,14 +1,25 @@
-@use "../../assets/scss/_variables.scss" as *;
-@use "../../assets/scss/_resets.scss";
+@use "./../../assets/sass/variables" as *;
+@use "./../../assets/sass/mixins" as *;
 
-.navbar {
-  margin: 10px;
-  width: 20%;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-  border: 2px solid $color-primary;
-  height: 100vh;
+.nav {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  width: 350px;
+  height: 100vh;
+  background-color: $color-primary;
+  padding: 10px;
+
+  @include respond(tablet) {
+  }
+
+  @include respond(mobile) {
+    display: none;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+  }
 }

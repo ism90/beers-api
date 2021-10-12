@@ -1,49 +1,63 @@
-import "./App.scss";
 import React, { useState, useEffect } from "react";
+import "./App.scss";
 
+import NavBar from "./components/NavBar/NavBar";
 import Main from "./components/Main/Main";
-import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   const [beers, setBeers] = useState([]);
-  //for search (second part allows us to update state)
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch(`https://api.punkapi.com/v2/beers?page=2&per_page=80`)
-      .then((res) => {
-        return res.json();
-      })
-      .then(
-        (beers) => {
-          console.log(beers);
-          return setBeers(beers);
-        },
-        [searchTerm]
-      );
-  });
+    fetch("https://api.punkapi.com/v2/beers?page=3&per_page=80")
+      .then((response) => response.json())
+      .then((data) => setBeers(data))
+      .catch((error) => console.log(error));
+  }, []);
 
-  const beersToLowerCase = beers.filter((beer) => {
-    const searchToLower = beer.name.toLowerCase();
+  // setSearchTerm to match user input
+  const handleSearchInput = (element) => setSearchTerm(element.target.value);
 
-    return searchToLower.includes(searchTerm);
-  });
+  // Filter Search
 
-  const handleInput = (event) => {
-    const cleanInput = event.target.value.toLowerCase();
-    setSearchTerm(cleanInput);
+  const [beerFilters, setBeerFilters] = useState([
+    { filterName: "High ABV (> 6.0%)", value: "abv", active: false },
+    { filterName: "Classic Range", value: "classic", active: false },
+    { filterName: "Acidic (pH < 4)", value: "acidic", active: false },
+    { filterName: "Bitter (IBU > 100)", value: "IBU", active: false },
+    { filterName: "Smokey", value: "smoke", active: false },
+    {
+      filterName: "Nice With Something Cheesy",
+      value: "cheese",
+      active: false,
+    },
+    {
+      filterName: "Nice With Something Chocolatey",
+      value: "chocolate",
+      active: false,
+    },
+  ]);
+
+  // Filter - takes applied filters and makes copy array with only those in -> update state
+  const handleCheckedBoxes = (beerFilter, active) => {
+    const beerFiltersCopy = [...beerFilters];
+    const index = beerFiltersCopy.findIndex(
+      (beerFilterCopy) => beerFilterCopy.value === beerFilter.value
+    );
+
+    beerFiltersCopy[index].active = active;
+    setBeerFilters(beerFiltersCopy);
   };
 
   return (
-    <div className="app">
-      <Navbar
-        placeholder="Search"
-        searchTerm={searchTerm}
-        handleInput={handleInput}
+    <>
+      <NavBar
+        handleSearchInput={handleSearchInput}
+        beerFilters={beerFilters}
+        handleCheckedBoxes={handleCheckedBoxes}
       />
-
-      <Main beers={beersToLowerCase} />
-    </div>
+      <Main beers={beers} searchTerm={searchTerm} beerFilters={beerFilters} />
+    </>
   );
 };
 
