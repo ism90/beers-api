@@ -1,0 +1,12 @@
+@use "./../../assets/sass/variables" as *;
+@use "./../../assets/sass/mixins" as *;
+
+.filters-list {
+  &__title {
+    display: block;
+    text-align: center;
+    letter-spacing: 0.2px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+  }
+}

@@ -1,14 +1,13 @@
 import React from "react";
+
 import CardList from "../CardList/CardList";
-import "./Main.scss";
 
 const Main = (props) => {
-  const { beers } = props;
-
+  const { beers, searchTerm, beerFilters } = props;
   return (
-    <section className="main">
-      <CardList beers={beers} />
-    </section>
+    <>
+      <CardList beers={beers} searchTerm={searchTerm} beerFilters={beerFilters} />
+    </>
   );
 };
 
