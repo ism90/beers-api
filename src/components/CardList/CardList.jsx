@@ -3,19 +3,15 @@ import "./CardList.scss";
 
 import Card from "../Card/Card";
 
-
-
-  // Spiel for Demo:
-  // 
-  // conditional (ternary) operator
-
 const CardList = (props) => {
   const { beers, searchTerm, beerFilters } = props;
+
+  // Determines which filters have been selected
   const activeFilters = beerFilters
     .filter((filter) => filter.active)
     .map((filter) => filter.value);
 
-  const filteredBeersArray = beers
+  const filteredBeers = beers
     .filter((beer) =>
       beer.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -42,7 +38,7 @@ const CardList = (props) => {
     )
     .map((beer) => <Card key={beer.id} beer={beer} />);
 
-  return <section className="card-list">{filteredBeersArray}</section>;
+  return <section className="card-list">{filteredBeers}</section>;
 };
 
 export default CardList;
