@@ -1,20 +1,24 @@
 import React from "react";
-import "./Navbar.scss";
-import SearchBox from "../SearchBox/SearchBox";
+import "./NavBar.scss";
 
-const Navbar = (props) => {
-  const { handleInput, inputValue, searchTerm } = props;
+import SearchBox from "../SearchBox/SearchBox";
+import FiltersList from "../FiltersList/FiltersList";
+import logo from "../../assets/logo.png";
+
+const NavBar = (props) => {
+  const { beerFilters, handleSearchInput, handleCheckedBoxes } = props;
+
   return (
-    <>
-      <section className="title">
-        <h1>Brewdog</h1>
-      </section>
-      <section className="abv-filter"></section>
-      <div className="navbar">
-        <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
+    <section className="nav">
+      <div className="nav__content">
+        <div className="nav__logo">
+          <img src={logo} alt="logo of brewdog" />
+        </div>
+        <SearchBox placeholder="Search..." handleSearchInput={handleSearchInput} />
+        <FiltersList beerFilters={beerFilters} handleCheckedBoxes={handleCheckedBoxes} />
       </div>
-    </>
+    </section>
   );
 };
 
-export default Navbar;
+export default NavBar;
