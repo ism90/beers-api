@@ -8,6 +8,7 @@ const App = () => {
   const [beers, setBeers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Get all Punks
   useEffect(() => {
     fetch("https://api.punkapi.com/v2/beers?page=3&per_page=80")
       .then((response) => response.json())
@@ -18,8 +19,8 @@ const App = () => {
   // setSearchTerm to match user input
   const handleSearchInput = (element) => setSearchTerm(element.target.value);
 
-  // Filter Search
 
+// Preset filters
   const [beerFilters, setBeerFilters] = useState([
     { filterName: "High ABV (> 6.0%)", value: "abv", active: false },
     { filterName: "Classic Range", value: "classic", active: false },

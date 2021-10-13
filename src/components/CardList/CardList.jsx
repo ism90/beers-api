@@ -6,7 +6,6 @@ import Card from "../Card/Card";
 const CardList = (props) => {
   const { beers, searchTerm, beerFilters } = props;
 
-  // Determines which filters have been selected
   const activeFilters = beerFilters
     .filter((filter) => filter.active)
     .map((filter) => filter.value);
