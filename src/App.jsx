@@ -39,7 +39,7 @@ const App = () => {
     },
   ]);
 
-  // Filter - takes applied filters and makes copy array with only those in -> update state
+  // Filter - takes applied filters and makes copy array with only those in
   const handleCheckedBoxes = (beerFilter, active) => {
     const beerFiltersCopy = [...beerFilters];
     const index = beerFiltersCopy.findIndex(
