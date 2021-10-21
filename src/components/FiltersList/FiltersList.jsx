@@ -3,7 +3,7 @@ import "./FiltersList.scss";
 
 import FilterItem from "../FilterItem/FilterItem";
 
-const FiltersList = (props) => {
+const FiltersList = props => {
   const { handleCheckedBoxes, beerFilters } = props;
   const getFilterJSX = (filter, index) => (
     <div key={index}>
