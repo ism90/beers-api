@@ -1,6 +1,6 @@
 {
   "name": "beers-api",
-  "homepage": "https://github.com/ism90/beers-api",
+  "homepage": "https://ism90.github.io/beers-api/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

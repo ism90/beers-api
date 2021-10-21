@@ -10,6 +10,7 @@ const CardList = (props) => {
     .filter((filter) => filter.active)
     .map((filter) => filter.value);
 
+  //@Charlie - would love thoughts on how to make this prettier!
   const filteredBeers = beers
     .filter((beer) =>
       beer.name.toLowerCase().includes(searchTerm.toLowerCase())
